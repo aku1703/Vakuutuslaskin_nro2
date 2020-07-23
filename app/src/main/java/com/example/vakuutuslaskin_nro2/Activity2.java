@@ -1,13 +1,16 @@
 package com.example.vakuutuslaskin_nro2;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity2 extends AppCompatActivity  {
     EditText a1, a2, a3, a4;
+
+    private CalculatorOlio calculatorOlio = new CalculatorOlio();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +27,26 @@ public class Activity2 extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                Calculator_Impl calculator = new Calculator_Impl();
+                double agreemntAmount = Double.parseDouble(a1.getText().toString());
+                double insurancePercentage = Double.parseDouble(a2.getText().toString());
+                double vendorSharePercentage = Double.parseDouble(a3.getText().toString());
+                double minCostPrecent = Double.parseDouble(a4.getText().toString());
 
-                 double agreemntAmount = Double.parseDouble(a1.getText().toString());
-                 double insurancePercentage = Double.parseDouble(a2.getText().toString());
-                 double vendorSharePercentage = Double.parseDouble(a3.getText().toString());
-                 double minCostPrecent = Double.parseDouble(a4.getText().toString());
+                calculatorOlio.setOneMonthInsurance(agreemntAmount, insurancePercentage);
+                calculatorOlio.setVendorSharePerMonth(agreemntAmount, insurancePercentage, vendorSharePercentage, minCostPrecent);
 
-                 calculator.insuranceCost(agreemntAmount, insurancePercentage, vendorSharePercentage,  minCostPrecent);
+                calculatorOlio.getOneMonthInsurance();
+                calculatorOlio.getVendorSharePerMonth();
 
-             };
-         });
+                double insPer1Month =  calculatorOlio.getOneMonthInsurance();
+                double splitPer1Month =  calculatorOlio.getVendorSharePerMonth();
+
+                Intent intent = new Intent(getApplicationContext(), ResultList.class);
+                intent.putExtra("key", insPer1Month);
+                intent.putExtra("key2", splitPer1Month);
+                startActivity(intent);
+            };
+
+        });
     };
 }

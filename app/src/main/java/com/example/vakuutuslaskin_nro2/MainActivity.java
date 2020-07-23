@@ -1,12 +1,13 @@
 package com.example.vakuutuslaskin_nro2;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import static android.widget.Toast.*;
+
 
 public class MainActivity extends AppCompatActivity {
     private EditText Name;
@@ -37,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Activity2.class);
             startActivity(intent);
         } else {
+            makeText(MainActivity.this, "*** Invalid Details! ***", LENGTH_LONG).show();
             counter--;
-            //TODO tähän
             if (counter == 0) {
-                // TODO tähän joku teksti
+                makeText(MainActivity.this, "*** Please, check your username and password! ***", LENGTH_LONG).show();
+
                 Login.setEnabled(false);
             }
         }
