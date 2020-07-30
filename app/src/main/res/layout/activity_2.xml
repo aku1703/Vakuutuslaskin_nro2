@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity2"
-    tools:layout_editor_absoluteY="81dp"
-    tools:ignore="DuplicateIds">
+    tools:ignore="DuplicateIds"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
         android:id="@+id/button2"
@@ -23,26 +23,32 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="552dp"
+        android:layout_width="379dp"
+        android:layout_height="239dp"
+        android:layout_marginTop="108dp"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
 
         <EditText
             android:id="@+id/Amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:hint="Amount:"
             android:inputType="numberDecimal"
             android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
+            android:textColor="#090000"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textCursorDrawable="@android:drawable/dark_header"
             android:textIsSelectable="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:autofillHints="" />
-
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/ins_percentage"
@@ -63,6 +69,7 @@
             android:hint="Vendor share percentage:"
             android:inputType="numberDecimal"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#0C0000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -79,5 +86,16 @@
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_insTitle"
+        android:layout_width="329dp"
+        android:layout_height="45dp"
+        android:textColor="#0B0000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

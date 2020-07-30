@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import static com.example.vakuutuslaskin_nro2.MainActivity.historyFile;
 import static com.example.vakuutuslaskin_nro2.R.id.editTextHistTitle;
 
 public class History extends AppCompatActivity {
@@ -23,8 +24,10 @@ public class History extends AppCompatActivity {
         TextView historyDetails = findViewById(R.id.et_history);
         Button exit = findViewById(R.id.btExit);
 
-        historyTitle.setText("History");
+        String title = "History";
+        historyTitle.setText(title);
         history.setBackgroundColor(Color.LTGRAY);
+
         try {
             historyDetails.setText(MainActivity.readFile());
 
@@ -32,16 +35,16 @@ public class History extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("EXIT", true);
                 startActivity(intent);
                 finish();
             }
         }
-        )
-        ;
+        );
     }
 }

@@ -11,20 +11,9 @@ public class CalculatorOlio implements Serializable {
     private double oneMonthResult;
     private double vendorSharePer1Month;
 
-
-//    private double wholeYearResult = amount * (ins_percentage / 100);
-//    private double threeMonthsResult = wholeYearResult / 4.0;
-//    private double oneMonthResult = wholeYearResult / 12.0;
-//    private double splitPercentage = (ins_percentage - min_cost_precent);
-//    private double vendorSharePerYear = amount * ((vendor_share_percentage / 100) * (splitPercentage / 100));
-//    private double vendorSharePer3Months = vendorSharePerYear / 4;
-//    private double vendorSharePer1Month = vendorSharePerYear / 12;
-
-
     public double getOneMonthInsurance() {
         return this.oneMonthResult;
 }
-
     public double getVendorSharePerMonth () {
         return this.vendorSharePer1Month;
     }
@@ -32,7 +21,6 @@ public class CalculatorOlio implements Serializable {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-
     public void setIns_percentage(double ins_percentage) {
         this.ins_percentage = ins_percentage;
     }
@@ -49,26 +37,22 @@ public class CalculatorOlio implements Serializable {
     public double getAmount() {
         return amount;
     }
-
     public double getIns_percentage() {
         return ins_percentage;
     }
-
     public double getMin_cost_precent() {
         return min_cost_precent;
     }
-
     public double getVendor_share_percentage() {
         return vendor_share_percentage;
     }
 
     public double vendorSplitPerMonth() {
         return vendorSharePer1Month;
-
     }
+
     public double insuranceCostPerMonth() {
         return oneMonthResult;
-
     }
 
     public void setOneMonthInsurance (double amount, double ins_percentage) {
@@ -82,3 +66,11 @@ public class CalculatorOlio implements Serializable {
         this.vendorSharePer1Month = vendorSharePerYear / 12;
     }
 }
+
+//    private double wholeYearResult = amount * (ins_percentage / 100);
+//    private double threeMonthsResult = wholeYearResult / 4.0;
+//    private double oneMonthResult = wholeYearResult / 12.0;
+//    private double splitPercentage = (ins_percentage - min_cost_precent);
+//    private double vendorSharePerYear = amount * ((vendor_share_percentage / 100) * (splitPercentage / 100));
+//    private double vendorSharePer3Months = vendorSharePerYear / 4;
+//    private double vendorSharePer1Month = vendorSharePerYear / 12;
